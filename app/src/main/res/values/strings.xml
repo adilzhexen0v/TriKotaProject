@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Tri Kota Project</string>
+    <string name="title_home">Home</string>
+    <string name="title_appointments">Appointments</string>
+    <string name="title_other">Other</string>
+    <string name="show_appointments">Book appointments</string>
+    <string name="show_hospitals">All hospitals</string>
+    <string name="show_doctors">All doctors</string>
+    <string name="my_profile">My profile</string>
+    <string name="tech_support">Technical Support</string>
+    <string name="social_networks">Social Networks</string>
+    <string name="log_out">Log out</string>
+    <string name="text_appointments_page">You don’t have any booked appointments</string>
+</resources>
