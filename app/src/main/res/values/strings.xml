@@ -11,4 +11,5 @@
     <string name="social_networks">Social Networks</string>
     <string name="log_out">Log out</string>
     <string name="text_appointments_page">You don’t have any booked appointments</string>
+    <string name="experience">Experience: %s</string>
 </resources>

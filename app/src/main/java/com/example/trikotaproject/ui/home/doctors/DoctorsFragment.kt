@@ -7,19 +7,25 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.trikotaproject.contract.navigator
 import com.example.trikotaproject.databinding.FragmentHomeDoctorsBinding
+import com.example.trikotaproject.ui.home.doctors.adapter.DoctorAdapter
+import com.example.trikotaproject.ui.home.doctors.data.DoctorDatasource
 
 class DoctorsFragment: Fragment() {
+
+    private lateinit var binding: FragmentHomeDoctorsBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? = FragmentHomeDoctorsBinding.inflate(inflater, container, false).apply {
-        goBackBtn.setOnClickListener { onToMainMenuPressed() }
-    }.root
-
-
+    ): View? {
+        binding = FragmentHomeDoctorsBinding.inflate(inflater, container, false)
+        val doctorsRecyclerView = binding.recyclerView
+        doctorsRecyclerView.adapter = DoctorAdapter(container?.context, DoctorDatasource.doctors)
+        return binding.root
+    }
 
     private fun onToMainMenuPressed() {
-        navigator().goToHome()
+        navigator().showHomePage()
     }
 }

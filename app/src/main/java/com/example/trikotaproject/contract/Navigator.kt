@@ -11,5 +11,4 @@ interface Navigator {
     fun showAppointmentsPage()
     fun showOtherPage()
     fun showDoctors()
-    fun goToHome()
 }
