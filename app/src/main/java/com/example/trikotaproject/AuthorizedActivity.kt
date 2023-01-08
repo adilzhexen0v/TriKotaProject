@@ -1,19 +1,24 @@
 package com.example.trikotaproject
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.trikotaproject.contract.Navigator
+import com.example.trikotaproject.databinding.ActivityAuthorizedMainBinding
 import com.example.trikotaproject.ui.appointments.AppointmentsFragment
 import com.example.trikotaproject.ui.home.HomeFragment
 import com.example.trikotaproject.ui.home.doctors.DoctorsFragment
+import com.example.trikotaproject.ui.home.hospitals.HospitalsFragment
 import com.example.trikotaproject.ui.other.OtherFragment
 
 class AuthorizedActivity : AppCompatActivity(), Navigator {
+    private lateinit var binding: ActivityAuthorizedMainBinding
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var currentFragment: String
     private lateinit var toolbarBackButton: ImageView
@@ -22,7 +27,9 @@ class AuthorizedActivity : AppCompatActivity(), Navigator {
     private val APPOINTMENTS = "appointments"
     private val OTHER = "other"
     private val DOCTORS = "doctors"
+    private val HOSPITALS = "hospitals"
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         /*
         super.onCreate(savedInstanceState)
@@ -44,11 +51,14 @@ class AuthorizedActivity : AppCompatActivity(), Navigator {
         */
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_authorized_main)
+        binding = ActivityAuthorizedMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         showHomePage()
 
-        bottomNav = findViewById(R.id.nav_view)
+
+
+        bottomNav = binding.navView
         bottomNav.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.navigation_home -> {
@@ -86,8 +96,19 @@ class AuthorizedActivity : AppCompatActivity(), Navigator {
         toolbarBackButton.setOnClickListener {
             when(currentFragment){
                 DOCTORS -> showHomePage()
+                HOSPITALS -> showHomePage()
             }
         }
+    }
+
+    override fun logOut() {
+        val listIntent: Intent = Intent(this, UnauthorizedActivity::class.java)
+        startActivity(listIntent)
+    }
+
+    override fun showHospitals() {
+        currentFragment = HOSPITALS
+        launchFragment(HospitalsFragment())
     }
 
     override fun showDoctors(){

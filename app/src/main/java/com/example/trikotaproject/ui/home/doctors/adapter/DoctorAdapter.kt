@@ -15,9 +15,6 @@ class DoctorAdapter(
     private val context: Context?,
     private val dataset: List<DoctorModel>
 ): RecyclerView.Adapter<DoctorAdapter.DoctorCardViewHolder>(){
-
-    private val doctorsList = DoctorDatasource.doctors
-
     class DoctorCardViewHolder(view: View?): RecyclerView.ViewHolder(view!!){
         val doctorNameTextView: TextView? = view!!.findViewById(R.id.item_home_doctors_name)
         val doctorOccupationTextView: TextView? = view!!.findViewById(R.id.item_home_doctors_occupation)
@@ -41,6 +38,6 @@ class DoctorAdapter(
     }
 
     override fun getItemCount(): Int {
-        return doctorsList.size
+        return dataset.size
     }
 }

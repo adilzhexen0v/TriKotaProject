@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.trikotaproject.contract.navigator
 import com.example.trikotaproject.databinding.FragmentOtherBinding
 
 class OtherFragment : Fragment() {
@@ -24,7 +25,9 @@ class OtherFragment : Fragment() {
     ): View {
         _binding = FragmentOtherBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
+        binding.logoutBtn.setOnClickListener {
+            navigator().logOut()
+        }
         return root
     }
 

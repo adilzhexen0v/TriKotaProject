@@ -26,13 +26,13 @@ object DoctorDatasource {
             "Baigambetova Raushan",
             "Therapist",
             "11 years 5 months",
-            "Abylai Clinic, Almaty, Suaran 43/1"
+            "Abylai Clinic, Almaty, Sauran 43/1"
         ),
         DoctorModel(
             "Manarbekov Rustem",
             "Psychiatrist",
             "8 years 3 months",
-            "Abylai Clinic, Almaty, Suaran 43/1"
+            "Abylai Clinic, Almaty, Sauran 43/1"
         ),
         DoctorModel(
             "Bekbasova Assel",

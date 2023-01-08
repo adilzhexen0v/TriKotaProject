@@ -4,11 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.ViewModelProvider
-import com.example.trikotaproject.R
 import com.example.trikotaproject.contract.navigator
 import com.example.trikotaproject.databinding.FragmentHomeBinding
 
@@ -27,10 +23,14 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
+        binding.showHospitalsBtn.setOnClickListener {
+            navigator().showHospitals()
+        }
         binding.showDoctorsBtn.setOnClickListener {
             navigator().showDoctors()
         }
+
+
         return root
     }
 
