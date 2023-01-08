@@ -11,5 +11,8 @@
     <string name="social_networks">Social Networks</string>
     <string name="log_out">Log out</string>
     <string name="text_appointments_page">You don’t have any booked appointments</string>
-    <string name="experience">Experience: %s</string>
+    <string name="terms_of_use">Terms of use</string>
+    <string name="list_of_doctors">The list of doctors</string>
+    <string name="list_of_hospitals">The list of hospitals</string>
+    <string name="result_of_analysis">Result of analysis</string>
 </resources>

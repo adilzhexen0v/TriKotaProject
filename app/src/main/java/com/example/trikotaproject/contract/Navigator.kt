@@ -12,5 +12,6 @@ interface Navigator {
     fun showOtherPage()
     fun showDoctors()
     fun showHospitals()
+    fun showMyProfile()
     fun logOut()
 }

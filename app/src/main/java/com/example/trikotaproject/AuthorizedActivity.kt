@@ -11,23 +11,29 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.trikotaproject.contract.Navigator
 import com.example.trikotaproject.databinding.ActivityAuthorizedMainBinding
+import com.example.trikotaproject.databinding.FragmentMyprofileBinding
 import com.example.trikotaproject.ui.appointments.AppointmentsFragment
 import com.example.trikotaproject.ui.home.HomeFragment
 import com.example.trikotaproject.ui.home.doctors.DoctorsFragment
 import com.example.trikotaproject.ui.home.hospitals.HospitalsFragment
 import com.example.trikotaproject.ui.other.OtherFragment
+import com.example.trikotaproject.ui.other.myprofile.MyProfileFragment
 
 class AuthorizedActivity : AppCompatActivity(), Navigator {
     private lateinit var binding: ActivityAuthorizedMainBinding
+    private lateinit var profileBinding: FragmentMyprofileBinding
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var currentFragment: String
     private lateinit var toolbarBackButton: ImageView
+    private lateinit var toolbarSettingsButton: ImageView
+    private var checkSettings = 0
 
     private val HOME = "home"
     private val APPOINTMENTS = "appointments"
     private val OTHER = "other"
     private val DOCTORS = "doctors"
     private val HOSPITALS = "hospitals"
+    private val MYPROFILE = "myprofile"
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,11 +58,10 @@ class AuthorizedActivity : AppCompatActivity(), Navigator {
 
         super.onCreate(savedInstanceState)
         binding = ActivityAuthorizedMainBinding.inflate(layoutInflater)
+        profileBinding = FragmentMyprofileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         showHomePage()
-
-
 
         bottomNav = binding.navView
         bottomNav.setOnItemSelectedListener {
@@ -97,8 +102,23 @@ class AuthorizedActivity : AppCompatActivity(), Navigator {
             when(currentFragment){
                 DOCTORS -> showHomePage()
                 HOSPITALS -> showHomePage()
+                MYPROFILE -> showOtherPage()
             }
         }
+
+        toolbarSettingsButton = findViewById(R.id.toolbar_settings_button)
+        if(currentFragment == MYPROFILE) {
+            toolbarSettingsButton.visibility = View.VISIBLE
+        } else {
+            toolbarSettingsButton.visibility = View.INVISIBLE
+        }
+    }
+
+
+
+    override fun showMyProfile() {
+        currentFragment = MYPROFILE
+        launchFragment(MyProfileFragment())
     }
 
     override fun logOut() {
