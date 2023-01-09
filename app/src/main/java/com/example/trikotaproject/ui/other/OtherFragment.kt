@@ -8,18 +8,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.trikotaproject.R
 import com.example.trikotaproject.contract.navigator
 import com.example.trikotaproject.databinding.DialogSocialNetworksBinding
+import com.example.trikotaproject.databinding.DialogTechSupportBinding
 import com.example.trikotaproject.databinding.FragmentOtherBinding
 
 class OtherFragment : Fragment() {
 
     private var _binding: FragmentOtherBinding? = null
-    private lateinit var dialogBinding: DialogSocialNetworksBinding
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private lateinit var dialogSocialNetworksBinding: DialogSocialNetworksBinding
+    private lateinit var dialogTechSupportBinding: DialogTechSupportBinding
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -28,22 +29,23 @@ class OtherFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentOtherBinding.inflate(inflater, container, false)
-        dialogBinding = DialogSocialNetworksBinding.inflate(inflater, container, false)
+        dialogSocialNetworksBinding = DialogSocialNetworksBinding.inflate(inflater, container, false)
+        dialogTechSupportBinding = DialogTechSupportBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        dialogBinding.youtubeBtn.setOnClickListener {
+        dialogSocialNetworksBinding.youtubeBtn.setOnClickListener {
             openLink("https://www.youtube.com/", container!!.context)
         }
-        dialogBinding.telegramBtn.setOnClickListener {
+        dialogSocialNetworksBinding.telegramBtn.setOnClickListener {
             openLink("https://web.telegram.org/", container!!.context)
         }
-        dialogBinding.facebookBtn.setOnClickListener {
+        dialogSocialNetworksBinding.facebookBtn.setOnClickListener {
             openLink("https://www.facebook.com/index.php", container!!.context)
         }
-        dialogBinding.instagramBtn.setOnClickListener {
+        dialogSocialNetworksBinding.instagramBtn.setOnClickListener {
             openLink("https://www.instagram.com/", container!!.context)
         }
-        dialogBinding.linkedinBtn.setOnClickListener {
+        dialogSocialNetworksBinding.linkedinBtn.setOnClickListener {
             openLink("https://kz.linkedin.com/", container!!.context)
         }
 
@@ -55,6 +57,9 @@ class OtherFragment : Fragment() {
         }
         binding.socialNetworksBtn.setOnClickListener {
             alertShowSocialNetworks()
+        }
+        binding.techSupportBtn.setOnClickListener {
+            alertShowTechSupport()
         }
         return root
     }
@@ -74,7 +79,22 @@ class OtherFragment : Fragment() {
         val dialog = AlertDialog.Builder(context)
             .setCancelable(false)
             .setTitle(R.string.social_networks)
-            .setView(dialogBinding.root)
+            .setView(dialogSocialNetworksBinding.root)
+            .setNegativeButton("Close") {_, _ ->
+                navigator().showOtherPage()
+            }
+            .create()
+        dialog.show()
+    }
+
+    private fun alertShowTechSupport(){
+        val dialog = AlertDialog.Builder(context)
+            .setCancelable(false)
+            .setTitle(R.string.tech_support)
+            .setView(dialogTechSupportBinding.root)
+            .setPositiveButton("Send") {_, _ ->
+                Toast.makeText(context, R.string.tech_support_send_message, Toast.LENGTH_SHORT).show()
+            }
             .setNegativeButton("Close") {_, _ ->
                 navigator().showOtherPage()
             }

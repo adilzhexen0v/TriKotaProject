@@ -15,4 +15,5 @@
     <string name="list_of_doctors">The list of doctors</string>
     <string name="list_of_hospitals">The list of hospitals</string>
     <string name="result_of_analysis">Result of analysis</string>
+    <string name="tech_support_send_message">Your message has been sent!</string>
 </resources>
