@@ -13,5 +13,6 @@ interface Navigator {
     fun showDoctors()
     fun showHospitals()
     fun showMyProfile()
+    fun showTermsOfUse()
     fun logOut()
 }

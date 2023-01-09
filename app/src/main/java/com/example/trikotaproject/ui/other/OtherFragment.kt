@@ -52,14 +52,17 @@ class OtherFragment : Fragment() {
         binding.myProfileBtn.setOnClickListener {
             navigator().showMyProfile()
         }
-        binding.logoutBtn.setOnClickListener {
-            navigator().logOut()
-        }
         binding.socialNetworksBtn.setOnClickListener {
             alertShowSocialNetworks()
         }
         binding.techSupportBtn.setOnClickListener {
             alertShowTechSupport()
+        }
+        binding.termsOfUseBtn.setOnClickListener {
+            navigator().showTermsOfUse()
+        }
+        binding.logoutBtn.setOnClickListener {
+            navigator().logOut()
         }
         return root
     }

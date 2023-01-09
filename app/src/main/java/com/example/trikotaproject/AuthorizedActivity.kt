@@ -18,6 +18,7 @@ import com.example.trikotaproject.ui.home.doctors.DoctorsFragment
 import com.example.trikotaproject.ui.home.hospitals.HospitalsFragment
 import com.example.trikotaproject.ui.other.OtherFragment
 import com.example.trikotaproject.ui.other.myprofile.MyProfileFragment
+import com.example.trikotaproject.ui.other.termsofuse.TermsOfUseFragment
 
 class AuthorizedActivity : AppCompatActivity(), Navigator {
     private lateinit var binding: ActivityAuthorizedMainBinding
@@ -34,6 +35,7 @@ class AuthorizedActivity : AppCompatActivity(), Navigator {
     private val DOCTORS = "doctors"
     private val HOSPITALS = "hospitals"
     private val MYPROFILE = "myprofile"
+    private val TERMSOFUSE = "termsofuse"
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,6 +105,7 @@ class AuthorizedActivity : AppCompatActivity(), Navigator {
                 DOCTORS -> showHomePage()
                 HOSPITALS -> showHomePage()
                 MYPROFILE -> showOtherPage()
+                TERMSOFUSE -> showOtherPage()
             }
         }
 
@@ -114,7 +117,10 @@ class AuthorizedActivity : AppCompatActivity(), Navigator {
         }
     }
 
-
+    override fun showTermsOfUse() {
+        currentFragment = TERMSOFUSE
+        launchFragment(TermsOfUseFragment())
+    }
 
     override fun showMyProfile() {
         currentFragment = MYPROFILE
