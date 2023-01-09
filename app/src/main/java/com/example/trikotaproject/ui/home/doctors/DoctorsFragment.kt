@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.trikotaproject.contract.navigator
+import com.example.trikotaproject.authorizedcontract.navigator
 import com.example.trikotaproject.databinding.FragmentHomeDoctorsBinding
 import com.example.trikotaproject.ui.home.doctors.adapter.DoctorAdapter
 import com.example.trikotaproject.ui.home.doctors.data.DoctorDatasource

@@ -5,11 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import android.widget.LinearLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.trikotaproject.contract.Navigator
+import com.example.trikotaproject.authorizedcontract.AuthorizedStageNavigator
 import com.example.trikotaproject.databinding.ActivityAuthorizedMainBinding
 import com.example.trikotaproject.databinding.FragmentMyprofileBinding
 import com.example.trikotaproject.ui.appointments.AppointmentsFragment
@@ -20,14 +19,13 @@ import com.example.trikotaproject.ui.other.OtherFragment
 import com.example.trikotaproject.ui.other.myprofile.MyProfileFragment
 import com.example.trikotaproject.ui.other.termsofuse.TermsOfUseFragment
 
-class AuthorizedActivity : AppCompatActivity(), Navigator {
+class AuthorizedActivity : AppCompatActivity(), AuthorizedStageNavigator {
     private lateinit var binding: ActivityAuthorizedMainBinding
     private lateinit var profileBinding: FragmentMyprofileBinding
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var currentFragment: String
     private lateinit var toolbarBackButton: ImageView
     private lateinit var toolbarSettingsButton: ImageView
-    private var checkSettings = 0
 
     private val HOME = "home"
     private val APPOINTMENTS = "appointments"
@@ -39,25 +37,6 @@ class AuthorizedActivity : AppCompatActivity(), Navigator {
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
-        /*
-        super.onCreate(savedInstanceState)
-
-        binding = ActivityAuthorizedMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        val navView: BottomNavigationView = binding.navView
-
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_appointments, R.id.navigation_other
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-        */
-
         super.onCreate(savedInstanceState)
         binding = ActivityAuthorizedMainBinding.inflate(layoutInflater)
         profileBinding = FragmentMyprofileBinding.inflate(layoutInflater)

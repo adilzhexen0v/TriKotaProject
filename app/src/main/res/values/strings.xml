@@ -16,4 +16,8 @@
     <string name="list_of_hospitals">The list of hospitals</string>
     <string name="result_of_analysis">Result of analysis</string>
     <string name="tech_support_send_message">Your message has been sent!</string>
+    <string name="get_started_text">Welcome to FastMed!</string>
+    <string name="get_started_btn">Get Started</string>
+    <string name="register">Register</string>s
+    <string name="error">This field is required!</string>
 </resources>

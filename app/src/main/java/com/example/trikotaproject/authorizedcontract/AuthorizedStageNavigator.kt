@@ -1,12 +1,12 @@
-package com.example.trikotaproject.contract
+package com.example.trikotaproject.authorizedcontract
 
 import androidx.fragment.app.Fragment
 
-fun Fragment.navigator(): Navigator {
-    return requireActivity() as Navigator
+fun Fragment.navigator(): AuthorizedStageNavigator {
+    return requireActivity() as AuthorizedStageNavigator
 }
 
-interface Navigator {
+interface AuthorizedStageNavigator {
     fun showHomePage()
     fun showAppointmentsPage()
     fun showOtherPage()

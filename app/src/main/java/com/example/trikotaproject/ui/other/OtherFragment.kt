@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.trikotaproject.R
-import com.example.trikotaproject.contract.navigator
+import com.example.trikotaproject.authorizedcontract.navigator
 import com.example.trikotaproject.databinding.DialogSocialNetworksBinding
 import com.example.trikotaproject.databinding.DialogTechSupportBinding
 import com.example.trikotaproject.databinding.FragmentOtherBinding
