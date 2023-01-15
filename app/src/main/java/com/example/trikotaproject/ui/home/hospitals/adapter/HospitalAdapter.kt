@@ -23,7 +23,6 @@ class HospitalAdapter(
         val hospitalPhoneTextView: TextView? = view!!.findViewById(R.id.item_home_hospital_phone)
     }
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HospitalCardViewHolder {
         val adapterLayout = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_home_hospital, parent, false)
