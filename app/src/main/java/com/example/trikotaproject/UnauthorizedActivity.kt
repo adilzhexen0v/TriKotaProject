@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.trikotaproject.databinding.ActivityUnauthorizedMainBinding
 import com.example.trikotaproject.ui.getstarted.GetStartedFragment
-import com.example.trikotaproject.ui.getstarted.RegisterFragment
+import com.example.trikotaproject.ui.getstarted.LoginFragment
+import com.example.trikotaproject.ui.getstarted.RegisterFragmentFirst
+import com.example.trikotaproject.ui.getstarted.RegisterFragmentSecond
 import com.example.trikotaproject.unauthorizedcontract.UnauthorizedStageNavigator
 
 class UnauthorizedActivity: AppCompatActivity(), UnauthorizedStageNavigator {
@@ -35,7 +37,15 @@ class UnauthorizedActivity: AppCompatActivity(), UnauthorizedStageNavigator {
         launchFragment(GetStartedFragment())
     }
 
-    override fun showRegister(){
-        launchFragment(RegisterFragment())
+    override fun showRegisterFirst() {
+        launchFragment(RegisterFragmentFirst())
+    }
+
+    override fun showRegisterSecond(){
+        launchFragment(RegisterFragmentSecond())
+    }
+
+    override fun showLogin() {
+        launchFragment(LoginFragment())
     }
 }

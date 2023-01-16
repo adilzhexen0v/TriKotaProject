@@ -17,7 +17,7 @@ class GetStartedFragment: Fragment() {
     ): View? {
         binding = FragmentGetstartedBinding.inflate(layoutInflater)
         binding.getStartedBtn.setOnClickListener {
-            navigator().showRegister()
+            navigator().showRegisterFirst()
         }
         return binding.root
     }

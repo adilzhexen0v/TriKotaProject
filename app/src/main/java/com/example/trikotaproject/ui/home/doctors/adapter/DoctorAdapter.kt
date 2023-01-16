@@ -31,10 +31,10 @@ class DoctorAdapter(
 
     override fun onBindViewHolder(holder: DoctorCardViewHolder, position: Int) {
         val doctorData = dataset[position]
-        holder.doctorNameTextView?.text = doctorData.name
-        holder.doctorOccupationTextView?.text = doctorData.occupation
-        holder.doctorExperienceTextView?.text = "Experience: ${doctorData.experience}"
-        holder.doctorHospitalTextView?.text = doctorData.hospital
+        holder.doctorNameTextView?.text = doctorData.name.toString()
+        holder.doctorOccupationTextView?.text = doctorData.occupation.toString()
+        holder.doctorExperienceTextView?.text = "Experience: ${doctorData.experience}".toString()
+        holder.doctorHospitalTextView?.text = doctorData.hospital.toString()
     }
 
     override fun getItemCount(): Int {

@@ -19,6 +19,11 @@
     <string name="get_started_text">Welcome to FastMed!</string>
     <string name="get_started_btn">Get Started</string>
     <string name="register">Register</string>
+    <string name="login">Log in</string>
+    <string name="next">Next</string>
     <string name="error">This field is required!</string>
-    <string name="dateOfBirth">%s-%s-%s</string>
+    <string name="register_question">Already have an account?</string>
+    <string name="login_question">Don`t have an account?</string>
+    <string name="empty"/>
+    <string name="loading">loading...</string>
 </resources>
