@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.trikotaproject.JsonApi
 import com.example.trikotaproject.databinding.FragmentMyprofileBinding
-import com.example.trikotaproject.unauthorizedcontract.navigator
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import org.json.JSONObject
@@ -50,9 +49,11 @@ class MyProfileFragment: Fragment() {
                         val email = json.getString("email")
                         val dateOfBirth = json.getString("dateOfBirth")
                         val gender = json.getString("gender")
+                        val phone = json.getString("phoneNumber")
                         binding.myProfileNameText.text = name
                         binding.myProfileSurnameText.text = surname
                         binding.myProfileEmailText.text = email
+                        binding.myProfilePhoneText.text = phone
                         binding.myProfileDateText.text = dateOfBirth
                         binding.myProfileGenderText.text =  gender
 

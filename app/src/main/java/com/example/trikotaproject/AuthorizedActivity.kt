@@ -12,6 +12,7 @@ import com.example.trikotaproject.authorizedcontract.AuthorizedStageNavigator
 import com.example.trikotaproject.databinding.ActivityAuthorizedMainBinding
 import com.example.trikotaproject.databinding.FragmentMyprofileBinding
 import com.example.trikotaproject.ui.appointments.AppointmentsFragment
+import com.example.trikotaproject.ui.getstarted.UpdateProfileFragment
 import com.example.trikotaproject.ui.home.HomeFragment
 import com.example.trikotaproject.ui.home.doctors.DoctorsFragment
 import com.example.trikotaproject.ui.home.hospitals.HospitalsFragment
@@ -34,6 +35,7 @@ class AuthorizedActivity : AppCompatActivity(), AuthorizedStageNavigator {
     private val HOSPITALS = "hospitals"
     private val MYPROFILE = "myprofile"
     private val TERMSOFUSE = "termsofuse"
+    private val UPDATEPROFILE = "updateprofile"
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,10 +87,14 @@ class AuthorizedActivity : AppCompatActivity(), AuthorizedStageNavigator {
                 HOSPITALS -> showHomePage()
                 MYPROFILE -> showOtherPage()
                 TERMSOFUSE -> showOtherPage()
+                UPDATEPROFILE -> showMyProfile()
             }
         }
 
         toolbarSettingsButton = findViewById(R.id.toolbar_settings_button)
+        toolbarSettingsButton.setOnClickListener {
+            showUpdateProfile()
+        }
         if(currentFragment == MYPROFILE) {
             toolbarSettingsButton.visibility = View.VISIBLE
         } else {
@@ -134,5 +140,10 @@ class AuthorizedActivity : AppCompatActivity(), AuthorizedStageNavigator {
     override fun showOtherPage() {
         currentFragment = OTHER
         launchFragment(OtherFragment())
+    }
+
+    override fun showUpdateProfile() {
+        currentFragment = UPDATEPROFILE
+        launchFragment(UpdateProfileFragment())
     }
 }

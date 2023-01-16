@@ -58,6 +58,8 @@ class LoginFragment: Fragment() {
                             val json = JSONObject(Gson().toJson(response.body()))
                             val token = json.getString("token")
                             editor?.putString("TOKEN", token)
+                            val id = json.getString("_id")
+                            editor?.putString("ID", id)
                             editor?.apply()
                             navigator().logIn()
                         }

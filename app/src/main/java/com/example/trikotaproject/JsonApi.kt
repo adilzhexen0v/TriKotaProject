@@ -2,6 +2,7 @@ package com.example.trikotaproject
 
 import com.example.trikotaproject.ui.getstarted.userModel.UserLoginModel
 import com.example.trikotaproject.ui.getstarted.userModel.UserModel
+import com.example.trikotaproject.ui.getstarted.userModel.UserUpdateModel
 import com.example.trikotaproject.ui.home.doctors.model.DoctorModel
 import com.google.gson.JsonObject
 import retrofit2.Call
@@ -23,8 +24,15 @@ interface JsonApi {
         @Header("Authorization") authToken: String
     ): Call<JsonObject>
 
+    @POST("user/update")
+    fun updateUserProfileData(
+        @Header("Authorization") authToken: String,
+        @Body userData: UserUpdateModel
+    ): Call<JsonObject>
+    /*
     @GET("doctors")
     fun getListOfDoctors(
         @Header("Authorization") authToken: String
     ): Call<List<DoctorModel>>
+     */
 }

@@ -14,5 +14,6 @@ interface AuthorizedStageNavigator {
     fun showHospitals()
     fun showMyProfile()
     fun showTermsOfUse()
+    fun showUpdateProfile()
     fun logOut()
 }
