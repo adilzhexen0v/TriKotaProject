@@ -29,10 +29,10 @@ interface JsonApi {
         @Header("Authorization") authToken: String,
         @Body userData: UserUpdateModel
     ): Call<JsonObject>
-    /*
+
     @GET("doctors")
     fun getListOfDoctors(
         @Header("Authorization") authToken: String
-    ): Call<List<DoctorModel>>
-     */
+    ): Call<JsonObject>
+
 }

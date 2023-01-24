@@ -44,6 +44,7 @@ class MyProfileFragment: Fragment() {
                 override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                     try {
                         val json = JSONObject(Gson().toJson(response.body()))
+                        /*
                         val name = json.getString("name")
                         val surname = json.getString("surname")
                         val email = json.getString("email")
@@ -56,6 +57,8 @@ class MyProfileFragment: Fragment() {
                         binding.myProfilePhoneText.text = phone
                         binding.myProfileDateText.text = dateOfBirth
                         binding.myProfileGenderText.text =  gender
+                         */
+                        binding.myProfileNameText.text = json.toString()
 
                     } catch (e: Exception) {
                         Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show()

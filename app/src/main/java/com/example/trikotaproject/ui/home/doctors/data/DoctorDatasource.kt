@@ -4,6 +4,7 @@ import com.example.trikotaproject.ui.home.doctors.model.DoctorModel
 
 object DoctorDatasource {
     val doctors: List<DoctorModel> = listOf(
+        /*
         DoctorModel(
             "Kyrmanbaeva Akmaral",
             "Endocrinologist",
@@ -46,5 +47,6 @@ object DoctorDatasource {
             "9 years 7 months",
             "Alan Clinic, Astana, Turan 55/3"
         ),
+         */
     )
 }
