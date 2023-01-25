@@ -16,8 +16,11 @@ class GetStartedFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentGetstartedBinding.inflate(layoutInflater)
-        binding.getStartedBtn.setOnClickListener {
-            navigator().showRegisterFirst()
+        binding.userBtn.setOnClickListener {
+            navigator().showUserRegisterFirst()
+        }
+        binding.doctorBtn.setOnClickListener {
+            navigator().showDoctorRegisterFirst()
         }
         return binding.root
     }

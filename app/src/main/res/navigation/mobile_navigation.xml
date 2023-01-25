@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.trikotaproject.ui.home.HomeFragment"
+        android:name="com.example.trikotaproject.ui.user.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -17,19 +17,19 @@
 
     <fragment
         android:id="@+id/navigation_appointments"
-        android:name="com.example.trikotaproject.ui.appointments.AppointmentsFragment"
+        android:name="com.example.trikotaproject.ui.user.appointments.AppointmentsFragment"
         android:label="@string/title_appointments"
         tools:layout="@layout/fragment_appointments" />
 
     <fragment
         android:id="@+id/navigation_other"
-        android:name="com.example.trikotaproject.ui.other.OtherFragment"
+        android:name="com.example.trikotaproject.ui.user.other.OtherFragment"
         android:label="@string/title_other"
         tools:layout="@layout/fragment_other" />
 
     <fragment
         android:id="@+id/navigation_home_doctors"
-        android:name="com.example.trikotaproject.ui.home.doctors.DoctorsFragment"
+        android:name="com.example.trikotaproject.ui.user.home.doctors.DoctorsFragment"
         android:label="@string/title_other"
         tools:layout="@layout/fragment_home_doctors" />
 </navigation>

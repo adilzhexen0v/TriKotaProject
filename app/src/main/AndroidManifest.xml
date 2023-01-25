@@ -13,7 +13,7 @@
         android:theme="@style/Theme.TriKotaProject"
         tools:targetApi="31">
         <activity
-            android:name=".AuthorizedActivity"
+            android:name=".AuthorizedUserActivity"
             android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

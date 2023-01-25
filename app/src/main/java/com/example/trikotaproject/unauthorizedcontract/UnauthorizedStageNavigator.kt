@@ -8,8 +8,10 @@ fun Fragment.navigator(): UnauthorizedStageNavigator {
 
 interface UnauthorizedStageNavigator {
     fun showGetStarted()
-    fun showRegisterFirst()
-    fun showRegisterSecond()
-    fun showLogin()
-    fun logIn()
+    fun showUserRegisterFirst()
+    fun showUserRegisterSecond()
+    fun showUserLogin()
+    fun userLogIn()
+    fun showDoctorRegisterFirst()
+    fun showDoctorRegisterSecond()
 }

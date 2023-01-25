@@ -27,24 +27,42 @@
         android:layout_marginTop="-2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/my_profile_image_block"
-        android:paddingHorizontal="16dp"
+        android:paddingHorizontal="14dp"
         android:paddingVertical="12dp"
         android:background="@drawable/profile_block"
         android:orientation="horizontal">
-        <EditText
-            android:id="@+id/update_name_text"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/update_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Name"
-            />
-        <EditText
-            android:id="@+id/update_surname_text"
-            android:layout_width="0dp"
             android:layout_weight="1"
+            android:hint="Name"
+            android:layout_marginEnd="6dp"
+            android:autofillHints="no"
+            >
+            <EditText
+                android:id="@+id/update_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/update_surname"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Surname"
-            />
+            android:layout_weight="1"
+            android:hint="Surname"
+            android:layout_marginStart="6dp"
+            android:autofillHints="no"
+            >
+            <EditText
+                android:id="@+id/update_surname_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -54,16 +72,26 @@
         android:layout_marginTop="-2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/my_profile_name_block"
-        android:paddingHorizontal="16dp"
+        android:paddingHorizontal="8dp"
         android:paddingVertical="12dp"
         android:background="@drawable/profile_block"
         android:orientation="horizontal">
-        <EditText
-            android:id="@+id/update_email_text"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/update_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email"
-            />
+            android:layout_weight="1"
+            android:hint="Email"
+            android:layout_marginStart="6dp"
+            android:autofillHints="no"
+            >
+            <EditText
+                android:id="@+id/update_email_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -73,16 +101,26 @@
         android:layout_marginTop="-2dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/my_profile_email_block"
-        android:paddingHorizontal="16dp"
+        android:paddingHorizontal="8dp"
         android:paddingVertical="12dp"
         android:background="@drawable/profile_block"
         android:orientation="horizontal">
-        <EditText
-            android:id="@+id/update_phone_text"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/update_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Phone"
-            />
+            android:layout_weight="1"
+            android:hint="Email"
+            android:layout_marginStart="6dp"
+            android:autofillHints="no"
+            >
+            <EditText
+                android:id="@+id/update_phone_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -96,27 +134,55 @@
         android:paddingVertical="12dp"
         android:background="@drawable/profile_block"
         android:orientation="horizontal">
-        <EditText
-            android:id="@+id/update_day_text"
-            android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/update_day"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:hint="Day"
+            android:layout_marginEnd="6dp"
+            android:autofillHints="no"
+            >
+            <EditText
+                android:id="@+id/update_day_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/update_month"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Day"
-            />
-        <EditText
-            android:id="@+id/update_month_text"
-            android:layout_width="0dp"
             android:layout_weight="1"
+            android:hint="Month"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:autofillHints="no"
+            >
+            <EditText
+                android:id="@+id/update_month_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/update_year"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Month"
-            />
-        <EditText
-            android:id="@+id/update_year_text"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:layout_height="wrap_content"
-            android:text="Year"
-            />
+            android:layout_weight="1"
+            android:hint="Year"
+            android:layout_marginStart="6dp"
+            android:autofillHints="no"
+            >
+            <EditText
+                android:id="@+id/update_year_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <Button
         android:id="@+id/update_btn"
