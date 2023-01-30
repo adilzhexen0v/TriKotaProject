@@ -14,11 +14,11 @@ import com.example.trikotaproject.R
 import com.example.trikotaproject.authorizedcontract.navigator
 import com.example.trikotaproject.databinding.DialogSocialNetworksBinding
 import com.example.trikotaproject.databinding.DialogTechSupportBinding
-import com.example.trikotaproject.databinding.FragmentOtherBinding
+import com.example.trikotaproject.databinding.FragmentUserOtherBinding
 
 class OtherFragment : Fragment() {
 
-    private var _binding: FragmentOtherBinding? = null
+    private var _binding: FragmentUserOtherBinding? = null
     private lateinit var dialogSocialNetworksBinding: DialogSocialNetworksBinding
     private lateinit var dialogTechSupportBinding: DialogTechSupportBinding
     private val binding get() = _binding!!
@@ -28,7 +28,7 @@ class OtherFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentOtherBinding.inflate(inflater, container, false)
+        _binding = FragmentUserOtherBinding.inflate(inflater, container, false)
         dialogSocialNetworksBinding = DialogSocialNetworksBinding.inflate(inflater, container, false)
         dialogTechSupportBinding = DialogTechSupportBinding.inflate(inflater, container, false)
         val root: View = binding.root

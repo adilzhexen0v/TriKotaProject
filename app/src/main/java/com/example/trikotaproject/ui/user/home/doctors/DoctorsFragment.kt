@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.example.trikotaproject.JsonApi
 import com.example.trikotaproject.authorizedcontract.navigator
-import com.example.trikotaproject.databinding.FragmentHomeDoctorsBinding
+import com.example.trikotaproject.databinding.FragmentUserHomeDoctorsBinding
+import com.example.trikotaproject.jsonApi
 import com.example.trikotaproject.ui.user.home.doctors.adapter.DoctorAdapter
-import com.example.trikotaproject.ui.user.home.doctors.data.DoctorDatasource
 import com.example.trikotaproject.ui.user.home.doctors.model.DoctorModel
 import com.google.gson.Gson
 import com.google.gson.JsonObject
@@ -20,30 +19,21 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class DoctorsFragment: Fragment() {
 
-    private lateinit var binding: FragmentHomeDoctorsBinding
+    private lateinit var binding: FragmentUserHomeDoctorsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeDoctorsBinding.inflate(inflater, container, false)
-
-
-        val retrofitBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://nosql-group-project-backend.onrender.com/")
-            .build()
-        val jsonApi = retrofitBuilder.create(JsonApi::class.java)
+        binding = FragmentUserHomeDoctorsBinding.inflate(inflater, container, false)
 
         val preferences = context?.getSharedPreferences("USER_INFO", Context.MODE_PRIVATE)
         val token = preferences?.getString("TOKEN", "")!!
-        Glide.with(requireContext()).load("https://sipdomik.ru/templates/images/loading.gif").into(binding.loading)
+        Glide.with(requireContext()).load("https://thumbs.gfycat.com/CorruptOldfashionedGuineapig-max-1mb.gif").into(binding.loading)
         try {
             val call = jsonApi.getListOfDoctors(token)
             call.enqueue(object : Callback<JsonObject> {
@@ -100,9 +90,6 @@ class DoctorsFragment: Fragment() {
             Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show()
         }
 
-
-        val doctorsRecyclerView = binding.recyclerView
-        doctorsRecyclerView.adapter = DoctorAdapter(container?.context, DoctorDatasource.doctors)
         return binding.root
     }
 

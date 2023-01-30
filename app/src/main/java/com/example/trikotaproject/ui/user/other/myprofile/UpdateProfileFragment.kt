@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.trikotaproject.JsonApi
 import com.example.trikotaproject.authorizedcontract.navigator
-import com.example.trikotaproject.databinding.FragmentMyprofileUpdateBinding
+import com.example.trikotaproject.databinding.FragmentUserMyprofileUpdateBinding
+import com.example.trikotaproject.jsonApi
 import com.example.trikotaproject.ui.getstarted.userModel.UserUpdateModel
 import com.google.gson.Gson
 import com.google.gson.JsonObject
@@ -18,27 +18,17 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class UpdateProfileFragment: Fragment() {
     fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(this)
 
-    private lateinit var binding: FragmentMyprofileUpdateBinding
+    private lateinit var binding: FragmentUserMyprofileUpdateBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMyprofileUpdateBinding.inflate(layoutInflater)
-
-        val retrofitBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://nosql-group-project-backend.onrender.com/")
-            .build()
-        val jsonApi = retrofitBuilder.create(JsonApi::class.java)
-
-
+        binding = FragmentUserMyprofileUpdateBinding.inflate(layoutInflater)
 
         val preferences = context?.getSharedPreferences("USER_INFO", Context.MODE_PRIVATE)
         val token = preferences?.getString("TOKEN", "")!!

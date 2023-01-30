@@ -21,7 +21,9 @@ class DoctorRegisterFragmentFirst: Fragment() {
         binding = FragmentDoctorRegisterFirstBinding.inflate(layoutInflater)
         val preferences = context?.getSharedPreferences("DOCTOR_INFO", Context.MODE_PRIVATE)
         val editor = preferences?.edit()
-
+        binding.moveLoginBtn.setOnClickListener {
+            navigator().showDoctorLogin()
+        }
         binding.nextBtn.setOnClickListener {
             var errorCounter = 0
             if (binding.enterNameText.text.isEmpty()) {

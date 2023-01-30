@@ -17,6 +17,7 @@ class UnauthorizedActivity: AppCompatActivity(), UnauthorizedStageNavigator {
     private lateinit var currentFragment: String
     private val DOCTORREGISTERFIRST = "DoctorRegisterFirst"
     private val DOCTORREGISTERSECOND = "DoctorRegisterSecond"
+    private val DOCTORLOGIN = "DoctorLogin"
     private val USERREGISTERFIRST = "UserRegisterFirst"
     private val USERREGISTERSECOND = "UserRegisterSecond"
     private val USERLOGIN = "UserLogin"
@@ -56,6 +57,11 @@ class UnauthorizedActivity: AppCompatActivity(), UnauthorizedStageNavigator {
         startActivity(listIntent)
     }
 
+    override fun doctorLogIn() {
+        val listIntent: Intent = Intent(this, AuthorizedDoctorActivity::class.java)
+        startActivity(listIntent)
+    }
+
     override fun showGetStarted(){
         currentFragment = GETSTARTED
         launchFragment(GetStartedFragment())
@@ -84,5 +90,10 @@ class UnauthorizedActivity: AppCompatActivity(), UnauthorizedStageNavigator {
     override fun showDoctorRegisterSecond() {
         currentFragment = DOCTORREGISTERSECOND
         launchFragment(DoctorRegisterFragmentSecond())
+    }
+
+    override fun showDoctorLogin() {
+        currentFragment = DOCTORLOGIN
+        launchFragment(DoctorLoginFragment())
     }
 }

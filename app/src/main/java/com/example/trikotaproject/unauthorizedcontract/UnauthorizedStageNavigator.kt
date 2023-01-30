@@ -12,6 +12,8 @@ interface UnauthorizedStageNavigator {
     fun showUserRegisterSecond()
     fun showUserLogin()
     fun userLogIn()
+    fun doctorLogIn()
     fun showDoctorRegisterFirst()
     fun showDoctorRegisterSecond()
+    fun showDoctorLogin()
 }

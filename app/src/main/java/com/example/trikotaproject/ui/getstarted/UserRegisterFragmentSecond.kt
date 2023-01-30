@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.trikotaproject.JsonApi
 import com.example.trikotaproject.R
 import com.example.trikotaproject.databinding.FragmentUserRegisterSecondBinding
+import com.example.trikotaproject.jsonApi
 import com.example.trikotaproject.ui.getstarted.userModel.UserModel
 import com.example.trikotaproject.unauthorizedcontract.navigator
 import com.google.gson.Gson
@@ -26,12 +27,6 @@ class UserRegisterFragmentSecond: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentUserRegisterSecondBinding.inflate(layoutInflater)
-
-        val retrofitBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://nosql-group-project-backend.onrender.com/")
-            .build()
-        val jsonApi = retrofitBuilder.create(JsonApi::class.java)
 
         val preferences = context?.getSharedPreferences("USER_INFO", Context.MODE_PRIVATE)
         val editor = preferences?.edit()
@@ -91,7 +86,6 @@ class UserRegisterFragmentSecond: Fragment() {
                            val id = json.getString("_id")
                            editor?.putString("ID", id)
                            editor?.apply()
-                           binding.error.text = user.toString()
                            navigator().userLogIn()
                         } catch (e: Exception) {
                             binding.error.text = e.toString()

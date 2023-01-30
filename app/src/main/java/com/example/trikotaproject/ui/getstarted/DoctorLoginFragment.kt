@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.trikotaproject.R
-import com.example.trikotaproject.databinding.FragmentUserLoginBinding
+import com.example.trikotaproject.databinding.FragmentDoctorLoginBinding
 import com.example.trikotaproject.jsonApi
-import com.example.trikotaproject.ui.getstarted.userModel.UserLoginModel
+import com.example.trikotaproject.ui.getstarted.doctorModel.DoctorLoginModel
 import com.example.trikotaproject.unauthorizedcontract.navigator
 import com.google.gson.Gson
 import com.google.gson.JsonObject
@@ -19,28 +19,23 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
-class UserLoginFragment: Fragment() {
-    private lateinit var binding: FragmentUserLoginBinding
-
+class DoctorLoginFragment:Fragment() {
+    private lateinit var binding: FragmentDoctorLoginBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentUserLoginBinding.inflate(layoutInflater)
-
-        val preferences = context?.getSharedPreferences("USER_INFO", Context.MODE_PRIVATE)
+        binding = FragmentDoctorLoginBinding.inflate(inflater, container, false)
+        val preferences = context?.getSharedPreferences("DOCTOR_INFO", Context.MODE_PRIVATE)
         val editor = preferences?.edit()
+
         binding.loginBtn.setOnClickListener {
             val email = binding.enterEmailText.text.toString()
-            val password = binding.enterPasswordText.text.toString()
-            val userLogin = UserLoginModel(
+            val  password = binding.enterPasswordText.text.toString()
+            val call = jsonApi.loginDoctor(DoctorLoginModel(
                 email, password
-            )
-            val call = jsonApi.loginUser(userLogin)
-            binding.error.text = "Please wait..."
-            binding.error.setTextColor(resources.getColor(R.color.green_700))
+            ))
             call.enqueue(object : Callback<JsonObject> {
                 override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
                     try {
@@ -55,10 +50,10 @@ class UserLoginFragment: Fragment() {
                             val id = json.getString("_id")
                             editor?.putString("ID", id)
                             editor?.apply()
-                            navigator().userLogIn()
+                            navigator().doctorLogIn()
                         }
                     } catch (e: Exception) {
-                       binding.error.text = e.toString()
+                        binding.error.text = e.toString()
                     }
                 }
 
@@ -69,9 +64,8 @@ class UserLoginFragment: Fragment() {
         }
 
         binding.moveRegisterBtn.setOnClickListener {
-            navigator().showUserRegisterFirst()
+            navigator().showDoctorRegisterFirst()
         }
-
         return binding.root
     }
 }

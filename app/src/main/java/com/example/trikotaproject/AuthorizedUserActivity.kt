@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.trikotaproject.authorizedcontract.AuthorizedUserStageNavigator
 import com.example.trikotaproject.databinding.ActivityAuthorizedMainBinding
-import com.example.trikotaproject.databinding.FragmentMyprofileBinding
+import com.example.trikotaproject.databinding.FragmentUserMyprofileBinding
 import com.example.trikotaproject.ui.user.appointments.AppointmentsFragment
 import com.example.trikotaproject.ui.user.other.myprofile.UpdateProfileFragment
 import com.example.trikotaproject.ui.user.home.HomeFragment
@@ -22,7 +22,7 @@ import com.example.trikotaproject.ui.user.other.termsofuse.TermsOfUseFragment
 
 class AuthorizedUserActivity : AppCompatActivity(), AuthorizedUserStageNavigator {
     private lateinit var binding: ActivityAuthorizedMainBinding
-    private lateinit var profileBinding: FragmentMyprofileBinding
+    private lateinit var profileBinding: FragmentUserMyprofileBinding
     private lateinit var bottomNav: BottomNavigationView
     private lateinit var currentFragment: String
     private lateinit var toolbarBackButton: ImageView
@@ -37,11 +37,10 @@ class AuthorizedUserActivity : AppCompatActivity(), AuthorizedUserStageNavigator
     private val TERMSOFUSE = "termsofuse"
     private val UPDATEPROFILE = "updateprofile"
 
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthorizedMainBinding.inflate(layoutInflater)
-        profileBinding = FragmentMyprofileBinding.inflate(layoutInflater)
+        profileBinding = FragmentUserMyprofileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         showHomePage()

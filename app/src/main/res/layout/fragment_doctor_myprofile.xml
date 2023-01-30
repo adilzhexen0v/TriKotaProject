@@ -16,7 +16,9 @@
             android:id="@+id/my_profile_image_img"
             android:layout_width="240dp"
             android:layout_height="240dp"
-            android:src="@drawable/profilelogoround"
+            android:background="@drawable/round_img"
+            android:clipToOutline="true"
+            android:src="@drawable/profilelogo"
             android:layout_gravity="center"
             />
     </LinearLayout>
@@ -121,7 +123,7 @@
             android:id="@+id/my_profile_gender_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/loading"
+            android:text="doctor"
             android:textColor="@color/gray"
             android:textSize="16sp"
             android:layout_gravity="center"/>

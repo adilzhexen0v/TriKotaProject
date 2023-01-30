@@ -7,19 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.trikotaproject.JsonApi
-import com.example.trikotaproject.databinding.FragmentMyprofileBinding
+import com.example.trikotaproject.databinding.FragmentUserMyprofileBinding
+import com.example.trikotaproject.jsonApi
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class MyProfileFragment: Fragment() {
-    private var _binding: FragmentMyprofileBinding? = null
+    private var _binding: FragmentUserMyprofileBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -27,14 +25,12 @@ class MyProfileFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMyprofileBinding.inflate(inflater, container, false)
-
-        val retrofitBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://nosql-group-project-backend.onrender.com/")
-            .build()
-        val jsonApi = retrofitBuilder.create(JsonApi::class.java)
-
+        _binding = FragmentUserMyprofileBinding.inflate(inflater, container, false)
+        /*
+        binding.myProfileImageImg.setImageResource(R.drawable.profilelogo)
+        binding.myProfileImageImg.clipToOutline = true
+        binding.myProfileImageImg.setBackgroundResource(R.drawable.round_img)
+         */
         val preferences = context?.getSharedPreferences("USER_INFO", Context.MODE_PRIVATE)
         val token = preferences?.getString("TOKEN", "")!!
 
@@ -56,6 +52,7 @@ class MyProfileFragment: Fragment() {
                         binding.myProfilePhoneText.text = phone
                         binding.myProfileDateText.text = dateOfBirth
                         binding.myProfileGenderText.text =  gender
+
                     } catch (e: Exception) {
                         Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show()
                     }

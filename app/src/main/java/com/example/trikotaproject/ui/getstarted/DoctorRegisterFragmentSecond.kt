@@ -9,26 +9,18 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.trikotaproject.JsonApi
 import com.example.trikotaproject.R
 import com.example.trikotaproject.databinding.FragmentDoctorRegisterSecondBinding
+import com.example.trikotaproject.jsonApi
 import com.example.trikotaproject.ui.getstarted.doctorModel.DoctorRegisterModel
+import com.example.trikotaproject.ui.getstarted.hospitalModel.Hospital
 import com.example.trikotaproject.unauthorizedcontract.navigator
-
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-
-data class Hospital(
-    val name: String,
-    val city: String,
-    val address: String
-)
 
 class DoctorRegisterFragmentSecond: Fragment() {
     private lateinit var binding: FragmentDoctorRegisterSecondBinding
@@ -50,11 +42,6 @@ class DoctorRegisterFragmentSecond: Fragment() {
         showOrHideCorrectTypeOfHospital()
         val preferences = context?.getSharedPreferences("DOCTOR_INFO", Context.MODE_PRIVATE)
         val editor = preferences?.edit()
-        val retrofitBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("https://nosql-group-project-backend.onrender.com/")
-            .build()
-        val jsonApi = retrofitBuilder.create(JsonApi::class.java)
         val call = jsonApi.getListOfHospitals()
         call.enqueue(object : Callback<JsonObject> {
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
@@ -154,7 +141,8 @@ class DoctorRegisterFragmentSecond: Fragment() {
                             val id = JSONObject(json.getString("doctorData")).getString("_id")
                             editor?.putString("ID", id)
                             editor?.apply()
-                            Toast.makeText(context, "Successful registration!", Toast.LENGTH_SHORT).show()
+                            //Toast.makeText(context, "Successful registration!", Toast.LENGTH_SHORT).show()
+                            navigator().doctorLogIn()
                         } catch (e: Exception) {
                             binding.error.text = e.toString()
                         }

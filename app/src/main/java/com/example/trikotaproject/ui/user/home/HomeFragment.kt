@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.trikotaproject.authorizedcontract.navigator
-import com.example.trikotaproject.databinding.FragmentHomeBinding
+import com.example.trikotaproject.databinding.FragmentUserHomeBinding
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentUserHomeBinding? = null
 
     private val binding get() = _binding!!
 
@@ -19,7 +19,7 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentUserHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         binding.showHospitalsBtn.setOnClickListener {
             navigator().showHospitals()

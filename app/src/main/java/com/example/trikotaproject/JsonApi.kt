@@ -1,11 +1,12 @@
 package com.example.trikotaproject
 
+import com.example.trikotaproject.ui.getstarted.doctorModel.DoctorLoginModel
 import com.example.trikotaproject.ui.getstarted.doctorModel.DoctorRegisterModel
 import com.example.trikotaproject.ui.getstarted.userModel.UserLoginModel
 import com.example.trikotaproject.ui.getstarted.userModel.UserModel
 import com.example.trikotaproject.ui.getstarted.userModel.UserUpdateModel
-import com.example.trikotaproject.ui.user.home.doctors.model.DoctorModel
 import com.google.gson.JsonObject
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -44,4 +45,16 @@ interface JsonApi {
     fun registerDoctor(
         @Body doctorData: DoctorRegisterModel
     ): Call<JsonObject>
+
+    @POST("doctor/login")
+    fun loginDoctor(
+        @Body doctorData: DoctorLoginModel
+    ): Call<JsonObject>
+
+    @Multipart
+    @POST("doctor/upload/profilepicture")
+    fun uploadDoctorProfilePicture(
+        @Part image: MultipartBody.Part,
+        @Part id: MultipartBody.Part
+    )
 }
