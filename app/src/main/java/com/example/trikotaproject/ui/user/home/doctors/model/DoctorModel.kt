@@ -5,4 +5,5 @@ data class DoctorModel(
     val occupation: String,
     val experience: String,
     val hospital: String,
+    val imageUrl: String
 )

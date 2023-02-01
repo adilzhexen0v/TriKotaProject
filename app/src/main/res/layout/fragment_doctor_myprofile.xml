@@ -70,7 +70,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/my_profile_phone_block"
+        android:id="@+id/my_profile_hospital_block"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-2dp"
@@ -81,7 +81,7 @@
         android:background="@drawable/profile_block"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/my_profile_phone_text"
+            android:id="@+id/my_profile_hospital_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/loading"
@@ -90,18 +90,18 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/my_profile_date_block"
+        android:id="@+id/my_profile_occupation_block"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-2dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_profile_phone_block"
+        app:layout_constraintTop_toBottomOf="@id/my_profile_hospital_block"
         android:paddingHorizontal="16dp"
         android:paddingVertical="12dp"
         android:background="@drawable/profile_block"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/my_profile_date_text"
+            android:id="@+id/my_profile_occupation_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/loading"
@@ -109,21 +109,42 @@
             android:textSize="16sp"/>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/my_profile_gender_block"
+        android:id="@+id/my_profile_experience_block"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="-2dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_profile_date_block"
+        app:layout_constraintTop_toBottomOf="@id/my_profile_occupation_block"
         android:paddingHorizontal="16dp"
         android:paddingVertical="12dp"
         android:background="@drawable/profile_block"
         android:orientation="horizontal">
         <TextView
-            android:id="@+id/my_profile_gender_text"
+            android:id="@+id/my_profile_experience_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="doctor"
+            android:text="@string/loading"
+            android:textColor="@color/gray"
+            android:textSize="16sp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/my_profile_status_block"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_profile_experience_block"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:background="@drawable/profile_block"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/my_profile_status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loading"
             android:textColor="@color/gray"
             android:textSize="16sp"
             android:layout_gravity="center"/>

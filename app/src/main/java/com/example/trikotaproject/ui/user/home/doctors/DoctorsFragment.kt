@@ -66,11 +66,18 @@ class DoctorsFragment: Fragment() {
                                     .getJSONObject(i)
                                     .getString("hospitalId")
                             ).getString("address")
+                            var imageUrl = "empty"
+                            try {
+                                imageUrl = doctorsJsonArray.getJSONObject(i).getString("imageUrl")
+                            } catch (e: Exception) {
+                                println(e)
+                            }
                             val doctor = DoctorModel (
                                 "$name $surname",
                                     occupation,
                                     experience,
-                                "$hospitalName, $hospitalCity, $hospitalAddress"
+                                "$hospitalName, $hospitalCity, $hospitalAddress",
+                                imageUrl
                                     )
                             doctorsList.add(doctor)
                         }

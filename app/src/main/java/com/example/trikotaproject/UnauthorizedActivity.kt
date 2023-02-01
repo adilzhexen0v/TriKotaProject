@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import com.example.trikotaproject.databinding.ActivityUnauthorizedMainBinding
 import com.example.trikotaproject.ui.getstarted.*
@@ -42,6 +41,7 @@ class UnauthorizedActivity: AppCompatActivity(), UnauthorizedStageNavigator {
                 USERREGISTERSECOND -> showUserRegisterFirst()
                 DOCTORREGISTERFIRST -> showGetStarted()
                 DOCTORREGISTERSECOND -> showDoctorRegisterFirst()
+                DOCTORLOGIN -> showGetStarted()
             }
         }
     }
