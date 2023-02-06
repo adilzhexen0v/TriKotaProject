@@ -63,7 +63,11 @@ class UserLoginFragment: Fragment() {
                 }
 
                 override fun onFailure(call: Call<JsonObject>, t: Throwable) {
-                    Toast.makeText(context, t.message.toString(), Toast.LENGTH_SHORT).show()
+                    var toastMsg = t.message.toString()
+                    if (t.message == "timeout") {
+                        toastMsg = "The waiting time has been exceeded. Please repeat again!"
+                    }
+                    Toast.makeText(context, toastMsg, Toast.LENGTH_SHORT).show()
                 }
             })
         }

@@ -10,4 +10,5 @@ interface AuthorizedDoctorStageNavigator {
     fun showHomePage()
     fun showAppointmentsPage()
     fun showMyProfile()
+    fun logOut()
 }

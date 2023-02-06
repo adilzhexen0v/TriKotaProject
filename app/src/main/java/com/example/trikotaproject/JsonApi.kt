@@ -66,6 +66,14 @@ interface JsonApi {
         @Part("id") id: RequestBody
     ): Call<JsonObject>
 
+    @Multipart
+    @POST("doctor/upload/cv")
+    fun uploadDoctorCV(
+        @Header("Authorization") authToken: String,
+        @Part image: MultipartBody.Part,
+        @Part("id") id: RequestBody
+    ): Call<JsonObject>
+
     @POST("doctor/delete/profilepicture")
     fun deleteDoctorProfilePicture(
         @Header("Authorization") authToken: String,

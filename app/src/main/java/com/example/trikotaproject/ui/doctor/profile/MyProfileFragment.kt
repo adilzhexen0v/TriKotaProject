@@ -73,6 +73,9 @@ class MyProfileFragment: Fragment() {
         binding.myProfileImageImg.setOnClickListener {
             alertUploadOrDelete()
         }
+        binding.logoutBtn.setOnClickListener {
+            navigator().logOut()
+        }
         return binding.root
     }
 

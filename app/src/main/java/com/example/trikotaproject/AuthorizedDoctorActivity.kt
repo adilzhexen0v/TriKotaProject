@@ -65,4 +65,9 @@ class AuthorizedDoctorActivity: AppCompatActivity(), AuthorizedDoctorStageNaviga
         currentFragment = MYPROFILE
         launchFragment(MyProfileFragment())
     }
+
+    override fun logOut() {
+        val listIntent: Intent = Intent(this, UnauthorizedActivity::class.java)
+        startActivity(listIntent)
+    }
 }

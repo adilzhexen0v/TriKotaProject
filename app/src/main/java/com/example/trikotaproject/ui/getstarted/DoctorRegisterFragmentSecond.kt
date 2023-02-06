@@ -131,6 +131,8 @@ class DoctorRegisterFragmentSecond: Fragment() {
             )
 
             if (errorCounter == 0) {
+                binding.error.text = "Please, wait..."
+                binding.error.setTextColor(resources.getColor(R.color.green_700))
                 val call = jsonApi.registerDoctor(doctor)
                 call.enqueue(object : Callback<JsonObject> {
                     override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
@@ -142,7 +144,7 @@ class DoctorRegisterFragmentSecond: Fragment() {
                             editor?.putString("ID", id)
                             editor?.apply()
                             //Toast.makeText(context, "Successful registration!", Toast.LENGTH_SHORT).show()
-                            navigator().doctorLogIn()
+                            navigator().showDoctorRegisterThird()
                         } catch (e: Exception) {
                             binding.error.text = e.toString()
                         }

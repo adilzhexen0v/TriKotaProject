@@ -31,6 +31,8 @@ class DoctorLoginFragment:Fragment() {
         val editor = preferences?.edit()
 
         binding.loginBtn.setOnClickListener {
+            binding.error.text = "Please, wait..."
+            binding.error.setTextColor(resources.getColor(R.color.green_700))
             val email = binding.enterEmailText.text.toString()
             val  password = binding.enterPasswordText.text.toString()
             val call = jsonApi.loginDoctor(DoctorLoginModel(
@@ -58,7 +60,11 @@ class DoctorLoginFragment:Fragment() {
                 }
 
                 override fun onFailure(call: Call<JsonObject>, t: Throwable) {
-                    Toast.makeText(context, t.message.toString(), Toast.LENGTH_SHORT).show()
+                    var toastMsg = t.message.toString()
+                    if (t.message == "timeout") {
+                        toastMsg = "The waiting time has been exceeded. Please repeat again!"
+                    }
+                    Toast.makeText(context, toastMsg, Toast.LENGTH_SHORT).show()
                 }
             })
         }
